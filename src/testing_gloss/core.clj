@@ -8,10 +8,6 @@
     `(defcodec ~msg-type
        (ordered-map :type ~type-kw ~@ fields))))
 
-(defcodec types
-  (enum :ubyte :choke :unchoke :interested :not-interested :have :bitfield
-        :request :piece :cancel))
-
 (defpeer-wire-msg choke)
 (defpeer-wire-msg unchoke)
 (defpeer-wire-msg interested)
@@ -38,8 +34,17 @@
   :offset  :uint32
   :length  :uint32)
 
+(def peer-wire-codecs
+  '[choke unchoke interested uninterested have bitfield request piece cancel])
+
+(def type->codec
+  (apply array-map (mapcat (juxt keyword resolve) peer-wire-codecs))) 
+
+(defcodec types-enum
+  (apply (partial enum :ubyte) (map keyword peer-wire-codecs)))
+
 (def peer-wire-messages
-  (finite-frame :uint32 (header types {:choke choke} :type)))
+  (finite-frame :uint32 (header types-enum type->codec :type)))
 
 (defcodec handshake
   (ordered-map :protocol-name (finite-frame :ubyte (string :us-ascii))
@@ -57,4 +62,5 @@
                       :reserved  0
                       :info-hash (sha1-to-byte-seq 0xd8a871a8485f51c2b399f78af161d0fca35b5c46)
                       :peer-id   "bt.clj  ------------"}]))
+
 
