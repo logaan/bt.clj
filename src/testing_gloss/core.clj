@@ -3,53 +3,43 @@
             [gloss.io :refer :all])
   (:import java.io.FileOutputStream))
 
+(defmacro defpeer-wire-msg [msg-type & fields]
+  (let [type-kw (keyword msg-type)]
+    `(defcodec ~msg-type
+       (ordered-map :type ~type-kw ~@ fields))))
+
 (defcodec types
   (enum :ubyte :choke :unchoke :interested :not-interested :have
         :bitfield :request :piece :cancel))
 
-(defcodec choke   
-  (ordered-map :type :choke))
+(defpeer-wire-msg choke)
+(defpeer-wire-msg unchoke)
+(defpeer-wire-msg interested)
+(defpeer-wire-msg uninterested)
 
-(defcodec unchoke 
-  (ordered-map :type :unchoke))
+(defpeer-wire-msg have
+  :index :uint32)
 
-(defcodec interested    
-  (ordered-map :type :interested))
+(defpeer-wire-msg bitfield 
+  :bitfield (repeated :ubyte :prefix :none))
 
-(defcodec uninterested  
-  (ordered-map :type :uninterested))
+(defpeer-wire-msg request
+  :index   :uint32
+  :offset  :uint32
+  :length  :uint32)
 
-(defcodec have 
-  (ordered-map :type  :have
-               :index :uint32))
+(defpeer-wire-msg piece
+  :index   :uint32
+  :offset  :uint32
+  :block   (repeated :ubyte :prefix :none))
 
-(defcodec bitfield 
-  (ordered-map :type     :bitfield 
-               :bitfield (repeated :ubyte :prefix :none)))
-
-(defcodec request
-  (ordered-map :type    :request
-               :index   :uint32
-               :offset  :uint32
-               :length  :uint32))
-
-(defcodec piece
-  (ordered-map :type    :piece
-               :index   :uint32
-               :offset  :uint32
-               :block   (repeated :ubyte :prefix :none)))
-
-(defcodec cancel
-  (ordered-map :type    :cancel
-               :index   :uint32
-               :offset  :uint32
-               :length  :uint32))
+(defpeer-wire-msg cancel
+  :index   :uint32
+  :offset  :uint32
+  :length  :uint32)
 
 (def peer-wire-messages
-  (finite-frame :uint32
-                (header types
-                        {:choke choke}
-                        :type)))
+  (finite-frame :uint32 (header types {:choke choke} :type)))
 
 (defcodec handshake
   (ordered-map :protocol-name (finite-frame :ubyte (string :us-ascii))
