@@ -51,24 +51,20 @@
                         {:choke choke}
                         :type)))
 
-; (defcodec handshake
-;   (ordered-map :name-length   :ubyte
-;                :protocol-name (string :us-ascii :length 19)
-;                :reserved      :uint64
-;                :info-hash     (repeat 20 :ubyte)
-;                :peer-id       (string :us-ascii :length 20)))
-
 (defcodec handshake
   (ordered-map :protocol-name (finite-frame :ubyte (string :us-ascii))
                :reserved      :uint64
                :info-hash     (repeat 20 :ubyte)
                :peer-id       (string :us-ascii :length 20)))
 
+(defn sha1-to-byte-seq [sha1]
+  (seq (byte-array (drop 1 (.toByteArray (biginteger sha1))))))
+
 (with-open [out (FileOutputStream. "handshake.bin")]
   (encode-to-stream handshake
                     out
                     [{:protocol-name "BitTorrent protocol"
                       :reserved  0
-                      :info-hash [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
-                      :peer-id   "asdfasdfasdfasdfasdf"}]))
+                      :info-hash (sha1-to-byte-seq 0xd8a871a8485f51c2b399f78af161d0fca35b5c46)
+                      :peer-id   "bt.clj  ------------"}]))
 
