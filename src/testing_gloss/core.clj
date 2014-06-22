@@ -1,5 +1,7 @@
 (ns testing-gloss.core
-  (:require [gloss.core :refer :all]))
+  (:require [gloss.core :refer :all]
+            [gloss.io :refer :all])
+  (:import java.io.FileOutputStream))
 
 (defcodec types
   (enum :ubyte :choke :unchoke :interested :not-interested :have
@@ -49,16 +51,24 @@
                         {:choke choke}
                         :type)))
 
+; (defcodec handshake
+;   (ordered-map :name-length   :ubyte
+;                :protocol-name (string :us-ascii :length 19)
+;                :reserved      :uint64
+;                :info-hash     (repeat 20 :ubyte)
+;                :peer-id       (string :us-ascii :length 20)))
+
 (defcodec handshake
-  (ordered-map :name-length   :ubyte
-               :protocol-name (string :us-ascii :length 19)
+  (ordered-map :protocol-name (finite-frame :ubyte (string :us-ascii))
                :reserved      :uint64
                :info-hash     (repeat 20 :ubyte)
                :peer-id       (string :us-ascii :length 20)))
 
-; (defcodec handshake
-;   (ordered-map :protocol-name (finite-frame :ubyte (string :us-ascii))
-;                :reserved      :uint64
-;                :info-hash     (repeat 20 :ubyte)
-;                :peer-id       (string :us-ascii :length 20)))
+(with-open [out (FileOutputStream. "handshake.bin")]
+  (encode-to-stream handshake
+                    out
+                    [{:protocol-name "BitTorrent protocol"
+                      :reserved  0
+                      :info-hash [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+                      :peer-id   "asdfasdfasdfasdfasdf"}]))
 
