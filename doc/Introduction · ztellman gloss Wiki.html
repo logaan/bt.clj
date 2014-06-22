@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://github.com/ztellman/gloss/wiki/Introduction -->
+<html class="   "><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    
+    <title>Introduction · ztellman/gloss Wiki</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site"><meta content="summary" name="twitter:card"><meta content="ztellman/gloss" name="twitter:title"><meta content="gloss - speaks in bytes, so you don&amp;#39;t have to" name="twitter:description"><meta content="https://avatars3.githubusercontent.com/u/31295?s=400" name="twitter:image:src">
+<meta content="GitHub" property="og:site_name"><meta content="object" property="og:type"><meta content="https://avatars3.githubusercontent.com/u/31295?s=400" property="og:image"><meta content="ztellman/gloss" property="og:title"><meta content="https://github.com/ztellman/gloss" property="og:url"><meta content="gloss - speaks in bytes, so you don&#39;t have to" property="og:description">
+
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="conduit-xhr" href="https://ghconduit.com:25035/">
+    <link rel="xhr-socket" href="https://github.com/_sockets">
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_wiki" data-pjax-transient="">
+      <meta name="google-analytics" content="UA-3769691-2">
+
+    <meta content="collector.githubapp.com" name="octolytics-host"><meta content="collector-cdn.github.com" name="octolytics-script-host"><meta content="github" name="octolytics-app-id"><meta content="C0A6CB06:6288:142018EC:53A68AD7" name="octolytics-dimension-request_id"><meta content="9669" name="octolytics-actor-id"><meta content="logaan" name="octolytics-actor-login"><meta content="fc8ebbc9459bccdfa8b40b5aea9edfcea0350f18345e265c22034aacf6ed678c" name="octolytics-actor-hash">
+    
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="j+DVjf09MoQcxBoux4r/xf2eBNOrMefrbFxSDjfK8HNpFmWJHDgVF1BBmmngiXNel5L7JQFvpXSlzGv0lZlwWw==" name="csrf-token">
+
+    <link href="./Introduction · ztellman gloss Wiki_files/github-a6192cdfd89979e5784337e3497d62bb93ee6635.css" media="all" rel="stylesheet" type="text/css">
+    <link href="./Introduction · ztellman gloss Wiki_files/github2-4b8defdcdccb0703e91275ace6405ba31c7beb05.css" media="all" rel="stylesheet" type="text/css">
+    
+
+
+    <meta http-equiv="x-pjax-version" content="b31b6e715de02cf5a4fb8d2540fe2fa6">
+
+      
+  <meta name="description" content="gloss - speaks in bytes, so you don&#39;t have to">
+
+
+  <meta content="31295" name="octolytics-dimension-user_id"><meta content="ztellman" name="octolytics-dimension-user_login"><meta content="832702" name="octolytics-dimension-repository_id"><meta content="ztellman/gloss" name="octolytics-dimension-repository_nwo"><meta content="true" name="octolytics-dimension-repository_public"><meta content="false" name="octolytics-dimension-repository_is_fork"><meta content="832702" name="octolytics-dimension-repository_network_root_id"><meta content="ztellman/gloss" name="octolytics-dimension-repository_network_root_nwo">
+  <link href="https://github.com/ztellman/gloss/commits/0.2.2.atom" rel="alternate" title="Recent Commits to gloss:0.2.2" type="application/atom+xml">
+
+  <script type="text/javascript" async="" src="./Introduction · ztellman gloss Wiki_files/api.js"></script></head>
+
+
+  <body class="logged_in  env-production macintosh vis-public">
+    <a href="https://github.com/ztellman/gloss/wiki/Introduction#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+      
+
+
+      <div class="header header-logged-in true">
+  <div class="container clearfix">
+
+    <a class="header-logo-invertocat" href="https://github.com/" aria-label="Homepage">
+  <span class="mega-octicon octicon-mark-github"></span>
+</a>
+
+
+    
+    <a href="https://github.com/notifications" aria-label="You have no unread notifications" class="notification-indicator tooltipped tooltipped-s" data-hotkey="g n">
+        <span class="mail-status all-read"></span>
+</a>
+
+      <div class="command-bar js-command-bar  in-repository">
+          <form accept-charset="UTF-8" action="https://github.com/search" class="command-bar-form" id="top_search_form" method="get">
+
+<div class="commandbar">
+  <span class="message"></span>
+  <input type="text" data-hotkey="s, /" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off" data-username="logaan" data-repo="ztellman/gloss" data-branch="0.2.2" data-sha="22d8a2f3f8986a1dcfa28efbf9d0eb46d11aaea2">
+  <div class="display hidden"></div>
+</div>
+
+    <input type="hidden" name="nwo" value="ztellman/gloss">
+
+    <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
+      <span class="minibutton select-menu-button js-menu-target" role="button" aria-haspopup="true">
+        <span class="js-select-button">This repository</span>
+      </span>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container" aria-hidden="true">
+        <div class="select-menu-modal">
+
+          <div class="select-menu-item js-navigation-item js-this-repository-navigation-item selected">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" class="js-search-this-repository" name="search_target" value="repository" checked="checked">
+            <div class="select-menu-item-text js-select-button-text">This repository</div>
+          </div> <!-- /.select-menu-item -->
+
+          <div class="select-menu-item js-navigation-item js-all-repositories-navigation-item">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" name="search_target" value="global">
+            <div class="select-menu-item-text js-select-button-text">All repositories</div>
+          </div> <!-- /.select-menu-item -->
+
+        </div>
+      </div>
+    </div>
+
+  <span class="help tooltipped tooltipped-s" aria-label="Show command bar help">
+    <span class="octicon octicon-question"></span>
+  </span>
+
+
+  <input type="hidden" name="ref" value="cmdform">
+
+</form>
+        <ul class="top-nav">
+          <li class="explore"><a href="https://github.com/explore">Explore</a></li>
+            <li><a href="https://gist.github.com/">Gist</a></li>
+            <li><a href="https://github.com/blog">Blog</a></li>
+          <li><a href="https://help.github.com/">Help</a></li>
+        </ul>
+      </div>
+
+    
+
+
+  <ul id="user-links">
+    <li>
+      <a href="https://github.com/logaan" class="name">
+        <img alt="Logan Campbell" class=" js-avatar" data-user="9669" height="20" src="./Introduction · ztellman gloss Wiki_files/9669" width="20"> logaan
+      </a>
+    </li>
+
+    <li class="new-menu dropdown-toggle js-menu-container">
+      <a href="https://github.com/ztellman/gloss/wiki/Introduction#" class="js-menu-target tooltipped tooltipped-s" aria-label="Create new...">
+        <span class="octicon octicon-plus"></span>
+        <span class="dropdown-arrow"></span>
+      </a>
+
+      <div class="new-menu-content js-menu-content">
+      </div>
+    </li>
+
+    <li>
+      <a href="https://github.com/settings/profile" id="account_settings" class="tooltipped tooltipped-s" aria-label="Account settings ">
+        <span class="octicon octicon-tools"></span>
+      </a>
+    </li>
+    <li>
+      <form class="logout-form" action="https://github.com/logout" method="post">
+        <button class="sign-out-button tooltipped tooltipped-s" aria-label="Sign out">
+          <span class="octicon octicon-sign-out"></span>
+        </button>
+      </form>
+    </li>
+
+  </ul>
+
+<div class="js-new-dropdown-contents hidden">
+  
+
+<ul class="dropdown-menu">
+  <li>
+    <a href="https://github.com/new"><span class="octicon octicon-repo"></span> New repository</a>
+  </li>
+  <li>
+    <a href="https://github.com/organizations/new"><span class="octicon octicon-organization"></span> New organization</a>
+  </li>
+
+
+    <li class="section-title">
+      <span title="ztellman/gloss">This repository</span>
+    </li>
+      <li>
+        <a href="https://github.com/ztellman/gloss/issues/new"><span class="octicon octicon-issue-opened"></span> New issue</a>
+      </li>
+</ul>
+
+</div>
+
+
+    
+  </div>
+</div>
+
+      
+
+        
+
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope="" itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+        
+
+<ul class="pagehead-actions">
+
+    <li class="subscription">
+      <form accept-charset="UTF-8" action="https://github.com/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="zAeusxFT7dpI4Ef8Bd0gMviGl0YQ++eepdicXWsatTcudZRNZvJ2UgfvYGUWHNHNhlYShu1SIpZp9UioYxUo0g=="></div>  <input id="repository_id" name="repository_id" type="hidden" value="832702">
+
+    <div class="select-menu js-menu-container js-select-menu">
+      <a class="social-count js-social-count" href="https://github.com/ztellman/gloss/watchers">
+        17
+      </a>
+      <span class="minibutton select-menu-button with-count js-menu-target" role="button" tabindex="0" aria-haspopup="true">
+        <span class="js-select-button">
+          <span class="octicon octicon-eye"></span>
+          Watch
+        </span>
+      </span>
+
+      <div class="select-menu-modal-holder">
+        <div class="select-menu-modal subscription-menu-modal js-menu-content" aria-hidden="true">
+          <div class="select-menu-header">
+            <span class="select-menu-title">Notification status</span>
+            <span class="octicon octicon-x js-menu-close"></span>
+          </div> <!-- /.select-menu-header -->
+
+          <div class="select-menu-list js-navigation-container" role="menu">
+
+            <div class="select-menu-item js-navigation-item selected" role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input checked="checked" id="do_included" name="do" type="radio" value="included">
+                <h4>Not watching</h4>
+                <span class="description">You only receive notifications for conversations in which you participate or are @mentioned.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-eye"></span>
+                  Watch
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+            <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input id="do_subscribed" name="do" type="radio" value="subscribed">
+                <h4>Watching</h4>
+                <span class="description">You receive notifications for all conversations in this repository.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-eye"></span>
+                  Unwatch
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+            <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input id="do_ignore" name="do" type="radio" value="ignore">
+                <h4>Ignoring</h4>
+                <span class="description">You do not receive any notifications for conversations in this repository.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-mute"></span>
+                  Stop ignoring
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+          </div> <!-- /.select-menu-list -->
+
+        </div> <!-- /.select-menu-modal -->
+      </div> <!-- /.select-menu-modal-holder -->
+    </div> <!-- /.select-menu -->
+
+</form>
+    </li>
+
+  <li>
+    
+
+  <div class="js-toggler-container js-social-container starring-container ">
+
+    <form accept-charset="UTF-8" action="https://github.com/ztellman/gloss/unstar" class="js-toggler-form starred" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="BHqrfNFXCz/zFUQGXLo/W2o1yCH7lruhPjF9PtPJZMxyE/FtUJLB38eKR5kRo696qx1tLIh6VhqAgTV7nhTiZw=="></div>
+      <button class="minibutton with-count js-toggler-target star-button" aria-label="Unstar this repository" title="Unstar ztellman/gloss">
+        <span class="octicon octicon-star"></span>
+        Unstar
+      </button>
+        <a class="social-count js-social-count" href="https://github.com/ztellman/gloss/stargazers">
+          237
+        </a>
+</form>
+    <form accept-charset="UTF-8" action="https://github.com/ztellman/gloss/star" class="js-toggler-form unstarred" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="xIN2+xSp3yDjapf+wNWayovFfQSNmG0bn7YEtDb0zqTeTvT0uji2+xFOCLWJMyYxf/77vy72J1YCi8p4OwnYHw=="></div>
+      <button class="minibutton with-count js-toggler-target star-button" aria-label="Star this repository" title="Star ztellman/gloss">
+        <span class="octicon octicon-star"></span>
+        Star
+      </button>
+        <a class="social-count js-social-count" href="https://github.com/ztellman/gloss/stargazers">
+          237
+        </a>
+</form>  </div>
+
+  </li>
+
+
+        <li>
+          <a href="https://github.com/ztellman/gloss/fork" class="minibutton with-count js-toggler-target fork-button lighter tooltipped-n" title="Fork your own copy of ztellman/gloss to your account" aria-label="Fork your own copy of ztellman/gloss to your account" rel="facebox nofollow">
+            <span class="octicon octicon-repo-forked"></span>
+            Fork
+          </a>
+          <a href="https://github.com/ztellman/gloss/network" class="social-count">21</a>
+        </li>
+
+</ul>
+
+        <h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="repo-label"><span>public</span></span>
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author"><a href="https://github.com/ztellman" class="url fn" itemprop="url" rel="author"><span itemprop="title">ztellman</span></a></span><!--
+       --><span class="path-divider">/</span><!--
+       --><strong><a href="https://github.com/ztellman/gloss" class="js-current-repository js-repo-home-link">gloss</a></strong>
+
+          <span class="page-context-loader">
+            <img alt="" height="16" src="./Introduction · ztellman gloss Wiki_files/octocat-spinner-32.gif" width="16">
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline js-new-discussion-timeline">
+        <div class="repository-sidebar clearfix">
+            
+
+<div class="sunken-menu vertical-right repo-nav js-repo-nav js-repository-container-pjax js-octicon-loaders">
+  <div class="sunken-menu-contents">
+    <ul class="sunken-menu-group">
+      <li class="tooltipped tooltipped-w" aria-label="Code">
+        <a href="https://github.com/ztellman/gloss" aria-label="Code" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g c" data-pjax="true" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /ztellman/gloss">
+          <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+          <img alt="" class="mini-loader" height="16" src="./Introduction · ztellman gloss Wiki_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+        <li class="tooltipped tooltipped-w" aria-label="Issues">
+          <a href="https://github.com/ztellman/gloss/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g i" data-selected-links="repo_issues /ztellman/gloss/issues">
+            <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+            <span class="counter">15</span>
+            <img alt="" class="mini-loader" height="16" src="./Introduction · ztellman gloss Wiki_files/octocat-spinner-32.gif" width="16">
+</a>        </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Pull Requests">
+        <a href="https://github.com/ztellman/gloss/pulls" aria-label="Pull Requests" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g p" data-selected-links="repo_pulls /ztellman/gloss/pulls">
+            <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
+            <span class="counter">4</span>
+            <img alt="" class="mini-loader" height="16" src="./Introduction · ztellman gloss Wiki_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+
+        <li class="tooltipped tooltipped-w" aria-label="Wiki">
+          <a href="https://github.com/ztellman/gloss/wiki" aria-label="Wiki" class="selected js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g w" data-selected-links="repo_wiki /ztellman/gloss/wiki">
+            <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
+            <img alt="" class="mini-loader" height="16" src="./Introduction · ztellman gloss Wiki_files/octocat-spinner-32.gif" width="16">
+</a>        </li>
+    </ul>
+    <div class="sunken-menu-separator"></div>
+    <ul class="sunken-menu-group">
+
+      <li class="tooltipped tooltipped-w" aria-label="Pulse">
+        <a href="https://github.com/ztellman/gloss/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="pulse /ztellman/gloss/pulse">
+          <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+          <img alt="" class="mini-loader" height="16" src="./Introduction · ztellman gloss Wiki_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Graphs">
+        <a href="https://github.com/ztellman/gloss/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="repo_graphs repo_contributors /ztellman/gloss/graphs">
+          <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+          <img alt="" class="mini-loader" height="16" src="./Introduction · ztellman gloss Wiki_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Network">
+        <a href="https://github.com/ztellman/gloss/network" aria-label="Network" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-selected-links="repo_network /ztellman/gloss/network">
+          <span class="octicon octicon-repo-forked"></span> <span class="full-word">Network</span>
+          <img alt="" class="mini-loader" height="16" src="./Introduction · ztellman gloss Wiki_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+    </ul>
+
+
+  </div>
+</div>
+
+              <div class="only-with-full-nav">
+                
+
+  
+
+<div class="clone-url " data-protocol-type="http" data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">
+  <h3><strong>HTTPS</strong> clone URL</h3>
+  <div class="clone-url-box">
+    <input type="text" class="clone js-url-field" value="https://github.com/ztellman/gloss.git" readonly="readonly">
+    <span class="url-box-clippy">
+    <button aria-label="copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/ztellman/gloss.git" data-copied-hint="copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+
+<div class="clone-url open" data-protocol-type="ssh" data-url="/users/set_protocol?protocol_selector=ssh&amp;protocol_type=clone">
+  <h3><strong>SSH</strong> clone URL</h3>
+  <div class="clone-url-box">
+    <input type="text" class="clone js-url-field" value="git@github.com:ztellman/gloss.git" readonly="readonly">
+    <span class="url-box-clippy">
+    <button aria-label="copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="git@github.com:ztellman/gloss.git" data-copied-hint="copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+
+<div class="clone-url " data-protocol-type="subversion" data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone">
+  <h3><strong>Subversion</strong> checkout URL</h3>
+  <div class="clone-url-box">
+    <input type="text" class="clone js-url-field" value="https://github.com/ztellman/gloss" readonly="readonly">
+    <span class="url-box-clippy">
+    <button aria-label="copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/ztellman/gloss" data-copied-hint="copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+<p class="clone-options">You can clone with
+      <a href="https://github.com/ztellman/gloss/wiki/Introduction#" class="js-clone-selector" data-protocol="http">HTTPS</a>,
+      <a href="https://github.com/ztellman/gloss/wiki/Introduction#" class="js-clone-selector" data-protocol="ssh">SSH</a>,
+      or <a href="https://github.com/ztellman/gloss/wiki/Introduction#" class="js-clone-selector" data-protocol="subversion">Subversion</a>.
+  <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+    <span class="octicon octicon-question"></span>
+  </a>
+</p>
+
+  <a href="http://mac.github.com/" data-url="github-mac://openRepo/https://github.com/ztellman/gloss" class="minibutton sidebar-button js-conduit-rewrite-url" title="Save ztellman/gloss to your computer and use it in GitHub Desktop." aria-label="Save ztellman/gloss to your computer and use it in GitHub Desktop.">
+    <span class="octicon octicon-device-desktop"></span>
+    Clone in Desktop
+  </a>
+
+
+                <a href="https://github.com/ztellman/gloss/archive/0.2.2.zip" class="minibutton sidebar-button" aria-label="Download ztellman/gloss as a zip file" title="Download ztellman/gloss as a zip file" rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+              </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container="">
+          
+
+
+<div id="wiki-wrapper" class="wiki-wrapper page">
+<div class="gh-header">
+  <div class="gh-header-show">
+      <div class="gh-header-actions">
+          <a href="https://github.com/ztellman/gloss/wiki/Introduction/_edit" class="minibutton ">Edit</a>
+          <a href="https://github.com/ztellman/gloss/wiki/_new" class="minibutton primary">New Page</a>
+      </div>
+    <a class="gh-header-back js-issue-listing-back" href="https://github.com/ztellman/gloss/wiki" title="Back to the Wiki Home">
+      <span class="mega-octicon octicon-chevron-left"></span>
+    </a>
+    <h1 class="gh-header-title instapaper_title">Introduction&nbsp;
+      </h1>
+      <div class="gh-header-meta">
+        <a href="https://github.com/mdoza" class="author">mdoza</a> edited this page <time datetime="2013-02-10T21:56:03-08:00" is="relative-time" title="Feb 11, 2013 6:56 AM GMT+01:00">on Feb 11, 2013</time>
+        ·
+        <a href="https://github.com/ztellman/gloss/wiki/Introduction/_history" class="history">
+          9 revisions
+        </a>
+      </div>
+  </div>
+</div>
+<div id="wiki-content">
+  <div class="wrap has-rightbar">
+
+  <div id="wiki-rightbar">
+    <div class="wiki-pages-box readability-sidebar box box-small js-wiki-pages-box ">
+      
+
+
+  <div class="box-header js-wiki-toggle-collapse wiki-auxiliary-content">
+    <h3 class="box-title">
+      <span class="octicon octicon-triangle-down caret-expanded"></span>
+      <span class="octicon octicon-triangle-right caret-collapsed"></span>
+      Pages <span class="box-title-count">4</span>
+    </h3>
+  </div>
+  <div class="box-body wiki-auxiliary-content wiki-auxiliary-content-no-bg">
+
+    <ul class="wiki-pages" data-filterable-for="wiki-pages-filter" data-filterable-type="substring">
+      <li>
+        <strong><a href="https://github.com/ztellman/gloss/wiki">Home</a></strong>
+      </li>
+      <li>
+        <strong><a href="./Introduction · ztellman gloss Wiki_files/Introduction · ztellman gloss Wiki.html">Introduction</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/ztellman/gloss/wiki/Netstrings">Netstrings</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/ztellman/gloss/wiki/TODO">TODO</a></strong>
+      </li>
+    </ul>
+  </div>
+
+    </div>
+
+
+    <div class="clone-url" data-protocol-type="" data-url="git@github.com:ztellman/gloss.wiki.git">
+      <h5>Clone this wiki locally</h5>
+      <div class="clone-url-box">
+        <input type="text" class="clone js-url-field" value="git@github.com:ztellman/gloss.wiki.git" readonly="readonly">
+        <span class="url-box-clippy">
+          <button aria-label="copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="git@github.com:ztellman/gloss.wiki.git" data-copied-hint="copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+        </span>
+      </div>
+
+        <a href="github-mac://openRepo/git@github.com:ztellman/gloss.wiki.git" data-url="github-mac://openRepo/git@github.com:ztellman/gloss.wiki.git" class="minibutton sidebar-button js-conduit-rewrite-url" title="Save this wiki to your computer and use it in GitHub Desktop." aria-label="Save this wiki to your computer and use it in GitHub Desktop.">
+          <span class="octicon octicon-device-desktop"></span>
+          Clone in Desktop
+        </a>
+
+    </div>
+  </div>
+
+  <div id="wiki-body" class="gollum-textile-content instapaper_body">
+    <div class="markdown-body">
+      <p>In Gloss, byte formats are called <strong>frames</strong>.  A frame is a standard Clojure data structure, with types substituted for actual values.  For instance, this is a valid frame:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">{</span><span class="ss">:a</span> <span class="ss">:int16</span>, <span class="ss">:b</span> <span class="ss">:float32</span><span class="p">}</span>
+</pre></div>
+
+<p>To turn a frame into something that can handle bytes, we call <code>compile-frame</code>.  This will return a <strong>codec</strong>, which can be used with <code>encode</code> and <code>decode</code>.</p>
+
+<div class="highlight highlight-clj"><pre><span class="nb">&gt; </span><span class="p">(</span><span class="k">def </span><span class="nv">fr</span> <span class="p">(</span><span class="nf">compile-frame</span> <span class="p">{</span><span class="ss">:a</span> <span class="ss">:int16</span>, <span class="ss">:b</span> <span class="ss">:float32</span><span class="p">}))</span>
+<span class="o">#</span><span class="ss">'fr</span>
+<span class="nb">&gt; </span><span class="p">(</span><span class="nf">encode</span> <span class="nv">fr</span> <span class="p">{</span><span class="ss">:a</span> <span class="mi">1</span>, <span class="ss">:b</span> <span class="mi">2</span><span class="p">})</span>
+<span class="p">[</span> <span class="o">#</span><span class="nv">&lt;HeapByteBuffer</span> <span class="nv">java.nio.HeapByteBuffer</span><span class="p">[</span><span class="nv">pos=0</span> <span class="nv">lim=6</span> <span class="nv">cap=6</span><span class="p">]</span><span class="nb">&gt; </span><span class="p">]</span>
+<span class="nb">&gt; </span><span class="p">(</span><span class="nf">decode</span> <span class="nv">fr</span> <span class="nv">*1</span><span class="p">)</span>
+<span class="p">{</span><span class="ss">:a</span> <span class="mi">1</span>, <span class="ss">:b</span> <span class="mf">2.0</span><span class="p">}</span>
+</pre></div>
+
+<p><code>(defcodec name frame)</code> can also be used to create a new codec.</p>
+<p>Notice that <code>encode</code> returns a <em>sequence</em> of <a href="http://download.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html">ByteBuffers</a>.  Gloss consumes and emits sequences of ByteBuffers, because it’s designed to deal with streaming data.  Turning these sequences into a contiguous ByteBuffer can be accomplished by calling <code>(contiguous buffer-sequence)</code>, but this is only necessary when interfacing with external libraries.</p>
+<p>When a frame is defined using a map, Gloss encodes the vals in an arbitrary but consistent order. To work with existing binary protocols, use Gloss’ ordered-map (or a vector) to achieve the correct ordering.</p>
+<p>To encode and decode sequences of frames, use <code>encode-all</code> and <code>decode-all</code>.</p>
+
+<div class="highlight highlight-clj"><pre><span class="nb">&gt; </span><span class="p">(</span><span class="nf">defcodec</span> <span class="nv">fr</span> <span class="ss">:float32</span><span class="p">)</span>
+<span class="o">#</span><span class="ss">'fr</span>
+<span class="nb">&gt; </span><span class="p">(</span><span class="nf">encode-all</span> <span class="nv">fr</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">])</span>
+<span class="p">[</span> <span class="o">#</span><span class="nv">&lt;HeapByteBuffer</span> <span class="nv">java.nio.HeapByteBuffer</span><span class="p">[</span><span class="nv">pos=0</span> <span class="nv">lim=4</span> <span class="nv">cap=4</span><span class="p">]</span><span class="nb">&gt; </span><span class="o">#</span><span class="nv">&lt;HeapByteBuffer</span> <span class="nv">java.nio.HeapByteBuffer</span><span class="p">[</span><span class="nv">pos=0</span> <span class="nv">lim=4</span> <span class="nv">cap=4</span><span class="p">]</span><span class="nb">&gt; </span><span class="p">]</span>
+<span class="nb">&gt; </span><span class="p">(</span><span class="nf">decode-all</span> <span class="nv">fr</span> <span class="nv">*1</span><span class="p">)</span>
+<span class="p">[</span><span class="mf">1.0</span> <span class="mf">2.0</span><span class="p">]</span>
+</pre></div>
+
+<p>Frames can have constant values which are not encoded.  For instance, this frame</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">[</span><span class="ss">:foo</span> <span class="ss">:int32</span><span class="p">]</span>
+</pre></div>
+
+<p>only takes up 4 bytes of space.  When decoding this frame, <code>:foo</code> will be placed in front of every integer that is read.  This can be useful as an identifier, giving us a way to differentiate between similar frames:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">{</span><span class="ss">:type</span> <span class="ss">:foo</span>
+ <span class="ss">:num</span> <span class="ss">:byte</span><span class="p">}</span>
+
+<span class="p">{</span><span class="ss">:type</span> <span class="ss">:bar</span>
+ <span class="ss">:num</span> <span class="ss">:int64</span><span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="user-content-frame-building-blocks" class="anchor" href="https://github.com/ztellman/gloss/wiki/Introduction#frame-building-blocks" aria-hidden="true"><span class="octicon octicon-link"></span></a>frame building blocks</h2>
+<h3>
+<a name="user-content-numbers" class="anchor" href="https://github.com/ztellman/gloss/wiki/Introduction#numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>numbers</h3>
+<p>Gloss supports the following primitive types: <code>:byte</code>, <code>:int16</code>, <code>:int32</code>, <code>:int64</code>, <code>:float32</code>, <code>:float64</code>, <code>:ubyte</code>, <code>:uint16</code>, <code>:uint32</code>, and <code>:uint64</code>.</p>
+<h3>
+<a name="user-content-endianness" class="anchor" href="https://github.com/ztellman/gloss/wiki/Introduction#endianness" aria-hidden="true"><span class="octicon octicon-link"></span></a>endianness</h3>
+<p>Defining the endianness of numerical primitives can be achieved by adding <code>-le</code> or <code>-be</code> to the end of the respective primitive:</p>
+
+<div class="highlight highlight-clj"><pre><span class="nb">&gt; </span><span class="c1">; Frame with a little endian float.</span>
+<span class="nb">&gt; </span><span class="p">(</span><span class="k">def </span><span class="nv">fr</span> <span class="p">(</span><span class="nf">compile-frame</span> <span class="p">{</span><span class="ss">:a</span> <span class="ss">:byte</span>, <span class="ss">:b</span> <span class="ss">:float32-le</span><span class="p">}))</span>
+<span class="o">#</span><span class="ss">'fr</span>
+<span class="nb">&gt; </span><span class="c1">; Frame with a big endian unsigned integer.</span>
+<span class="nb">&gt; </span><span class="p">(</span><span class="k">def </span><span class="nv">fr</span> <span class="p">(</span><span class="nf">compile-frame</span> <span class="p">{</span><span class="ss">:a</span> <span class="ss">:byte</span>, <span class="ss">:b</span> <span class="ss">:uint32-be</span><span class="p">}))</span>
+<span class="o">#</span><span class="ss">'fr</span>
+</pre></div>
+
+<h3>
+<a name="user-content-strings" class="anchor" href="https://github.com/ztellman/gloss/wiki/Introduction#strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>strings</h3>
+<p>Defining a simple stream of text is simple:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">string</span> <span class="ss">:utf-8</span><span class="p">)</span>
+</pre></div>
+
+<p>The second argument can be any valid name for a standard <a href="http://download.oracle.com/javase/6/docs/api/java/nio/charset/Charset.html">character set</a>.</p>
+<p>The above works great if our entire data structure is a string, but doesn’t allow for mixing different types of data with a string.  If we want to limit the length of the string, we have two choices: we can make the string fixed length, or terminate it with a delimiter.  The first case is straightforward:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">string</span> <span class="ss">:utf-8</span> <span class="ss">:length</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+<p>This defines a string which only contains ten characters.  This means that it will consume a finite number of bytes, and we can place it in a data structure beside other data types:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">[</span><span class="ss">:int32</span> <span class="p">(</span><span class="nf">string</span> <span class="ss">:utf-8</span> <span class="ss">:length</span> <span class="mi">10</span><span class="p">)</span> <span class="ss">:int32</span><span class="p">]</span>
+</pre></div>
+
+<p>Delimiters are common tools for marking the end of strings.  Every string in C, for instance, is by convention <a href="http://en.wikipedia.org/wiki/C_string">null terminated</a>.  Text files are often delimited by newline characters.  When dealing with strings, we may specify a list of possible delimiters, specified as ByteBuffers or anything which can be transformed into a ByteBuffer.</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">string</span> <span class="ss">:utf-8</span> <span class="ss">:delimiters</span> <span class="p">[</span><span class="s">"abc"</span> <span class="sc">\z</span> <span class="mi">32</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]])</span>
+</pre></div>
+
+<p>This specifies a string which terminated by one of the available terminators: the byte sequence corresponding the the string “abc”, the byte corresponding to the character ‘z’, the byte value ‘32’, or the byte sequence [1 2 3].  The largest delimiter will always be consumed, so we can specify two delimiters where one is just a shorter version of the other:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">string</span> <span class="ss">:utf-8</span> <span class="ss">:delimiters</span> <span class="p">[</span><span class="s">"\r"</span> <span class="s">"\r\n"</span><span class="p">])</span>
+</pre></div>
+
+<p>Sometimes strings are both prepended with a description of their length, and terminated with a marker simply for human readability.  We can specify this using a delimiter, but that means the string can’t contain that terminating marker, and adds the overhead of actually scanning the string for the delimiter.  Instead, we can simply specify a <code>:suffix</code>:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">string</span> <span class="ss">:utf-8</span> <span class="ss">:length</span> <span class="mi">10</span> <span class="ss">:suffix</span> <span class="s">","</span><span class="p">)</span>
+</pre></div>
+
+<p>Unlike delimiters, there can only be a single possible suffix, but it can be specified using any of the types that can be used for delimiters.  It can be used in conjunction with either <code>:length</code> and <code>:delimiters</code> (the suffix is assumed to appear after the delimiters), or by itself.</p>
+<h3>
+<a name="user-content-repeated" class="anchor" href="https://github.com/ztellman/gloss/wiki/Introduction#repeated" aria-hidden="true"><span class="octicon octicon-link"></span></a>repeated</h3>
+<p>We can have sequences of the same data-type:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">[</span><span class="ss">:int32</span> <span class="ss">:int32</span> <span class="ss">:int32</span><span class="p">]</span>
+</pre></div>
+
+<p>but this only works for sequences of fixed length.  To support dynamically sized sequences, we need to use <code>repeated</code>:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">repeated</span> <span class="ss">:int32</span><span class="p">)</span>
+</pre></div>
+
+<p>This will encode to a sequence of 32-bit integers, with an integer prepended that describes the length.  By default it will be a 32-bit integer, but this can customized using <code>:prefix</code>:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">repeated</span> <span class="p">[</span><span class="ss">:int16</span> <span class="ss">:int16</span><span class="p">]</span> 
+  <span class="ss">:prefix</span> <span class="ss">:byte</span><span class="p">)</span>
+</pre></div>
+
+<p>We can also create a sequence terminated by a delimiter:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">repeated</span> <span class="p">(</span><span class="nf">string</span> <span class="ss">:utf-8</span> <span class="ss">:delimiters</span> <span class="p">[</span><span class="s">"\n"</span><span class="p">])</span> 
+  <span class="ss">:delimiters</span> <span class="p">[</span><span class="s">"\\0"</span><span class="p">])</span>
+</pre></div>
+
+<p>Notice that both the string and the sequence are delimited.  There will be a <code>\n</code> delimiter for each string, and a single <code>\0</code> delimiter for the entire sequence.</p>
+<h3>
+<a name="user-content-prefix" class="anchor" href="https://github.com/ztellman/gloss/wiki/Introduction#prefix" aria-hidden="true"><span class="octicon octicon-link"></span></a>prefix</h3>
+<p>Some prefixes are simple numbers describing the number of elements that follow, but others can be more complicated.  Consider the case where a 16-bit prefix describes the byte-length of the sequence of 32-bit integers that follows, rather than just the number of integers.  To support this, we need <code>(prefix frame to-count from-count)</code>:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">repeated</span> <span class="ss">:int32</span> 
+  <span class="ss">:prefix</span> <span class="p">(</span><span class="nf">prefix</span> <span class="ss">:int16</span> <span class="o">#</span><span class="p">(</span><span class="nb">/ </span><span class="nv">%</span> <span class="mi">4</span><span class="p">)</span> <span class="o">#</span><span class="p">(</span><span class="nb">* </span><span class="nv">%</span> <span class="mi">4</span><span class="p">))))</span>
+</pre></div>
+
+<p>This prefix defines the data signature of the prefix, a decoder method which transforms the prefix value into the count of the sequence that follows, and an encoder method which transforms the sequence count into a prefix value.  In this case, it’s as simple as dividing the byte-count by 4 to get the number of 32-bit integers, and multiplying the number of integers by 4 to get the byte-count.</p>
+<p>Any type of frame can be used as a prefix.  This is a completely valid frame:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">repeated</span> <span class="ss">:byte</span> 
+  <span class="ss">:prefix</span> <span class="p">(</span><span class="nf">prefix</span> <span class="p">(</span><span class="nf">string</span> <span class="ss">:ascii</span> <span class="ss">:delimiters</span> <span class="p">[</span><span class="s">":"</span><span class="p">])</span>
+            <span class="o">#</span><span class="p">(</span><span class="nf">Long/parseLong</span> <span class="nv">%</span><span class="p">)</span>
+            <span class="nv">str</span><span class="p">))</span>
+</pre></div>
+
+<p>This will preface a sequence of bytes with a string terminated by <code>:</code> describing its length.</p>
+<h3>
+<a name="user-content-enum" class="anchor" href="https://github.com/ztellman/gloss/wiki/Introduction#enum" aria-hidden="true"><span class="octicon octicon-link"></span></a>enum</h3>
+<p>It can be useful to have a simple mapping between values and a unique numerical identifier.</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">enum</span> <span class="ss">:byte</span> <span class="ss">:a</span> <span class="ss">:b</span> <span class="ss">:c</span><span class="p">)</span>
+</pre></div>
+
+<p>This assigns unique numbers to each value, and allows the enumeration to be used as a data-type in other frames.</p>
+
+<div class="highlight highlight-clj"><pre><span class="nb">&gt; </span><span class="p">(</span><span class="nf">defcodec</span> <span class="nv">animal</span> <span class="p">(</span><span class="nf">enum</span> <span class="ss">:int16</span> <span class="ss">:dog</span> <span class="ss">:cat</span> <span class="ss">:horse</span><span class="p">))</span>
+<span class="o">#</span><span class="ss">'animal</span>
+<span class="nb">&gt; </span><span class="p">(</span><span class="nf">defcodec</span> <span class="nv">pet</span>
+    <span class="p">{</span><span class="ss">:name</span> <span class="p">(</span><span class="nf">string</span> <span class="ss">:utf-8</span> <span class="ss">:delimiter</span> <span class="s">"\n"</span><span class="p">)</span> 
+     <span class="ss">:type</span> <span class="nv">animal</span><span class="p">})</span>
+</pre></div>
+
+<p>Enumerations can also have specific values associated with them:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">enum</span> <span class="ss">:byte</span> <span class="p">{</span><span class="ss">:a</span> <span class="sc">\$</span>, <span class="ss">:b</span> <span class="mi">37</span><span class="p">})</span>
+</pre></div>
+
+<p>This can be useful when trying to create friendly representations of hard-coded values in other protocols.</p>
+<h3>
+<a name="user-content-headers" class="anchor" href="https://github.com/ztellman/gloss/wiki/Introduction#headers" aria-hidden="true"><span class="octicon octicon-link"></span></a>headers</h3>
+<p>A header is a frame which specifies the following frame.  A header is created using <code>(header frame header-&gt;body body-&gt;header)</code>.  The first argument is the frame for the header.  The second argument is a function which takes the value from the header, and returns a codec for the body.  The third argument is a function which takes the value of the body, and returns the header value.</p>
+<p>Let’s look at a frame that can describe a rectangle, a triangle, or a circle:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">defcodec</span> <span class="nv">type</span> <span class="p">(</span><span class="nf">enum</span> <span class="ss">:byte</span> <span class="ss">:rectangle</span> <span class="ss">:triangle</span> <span class="ss">:circle</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nf">defcodec</span> <span class="nv">triangle</span> <span class="p">{</span><span class="ss">:type</span> <span class="ss">:triangle</span>, <span class="ss">:width</span> <span class="ss">:int32</span>, <span class="ss">:height</span> <span class="ss">:int32</span><span class="p">})</span>
+<span class="p">(</span><span class="nf">defcodec</span> <span class="nv">rectangle</span> <span class="p">{</span><span class="ss">:type</span> <span class="ss">:rectangle</span>, <span class="ss">:width</span> <span class="ss">:int32</span>, <span class="ss">:height</span> <span class="ss">:int32</span><span class="p">})</span>
+<span class="p">(</span><span class="nf">defcodec</span> <span class="nv">circle</span> <span class="p">{</span><span class="ss">:type</span> <span class="ss">:circle</span>, <span class="ss">:radius</span> <span class="ss">:int32</span><span class="p">})</span>
+
+<span class="p">(</span><span class="nf">defcodec</span> <span class="nv">shapes</span> 
+  <span class="p">(</span><span class="nf">header</span> 
+    <span class="nv">type</span> 
+    <span class="p">{</span><span class="ss">:triangle</span> <span class="nv">triangle</span>, <span class="ss">:rectangle</span> <span class="nv">rectangle</span>, <span class="ss">:circle</span> <span class="nv">circle</span><span class="p">}</span>
+    <span class="ss">:type</span><span class="p">))</span>
+</pre></div>
+
+<p>Each frame starts with an enum, and ‘header→body’ is just a hash of enum values to codecs.  Since the frames have <code>:type</code> hardcoded, going from the decoded frame to the header value is trivial.</p>
+<h3>
+<a name="user-content-finite-frame" class="anchor" href="https://github.com/ztellman/gloss/wiki/Introduction#finite-frame" aria-hidden="true"><span class="octicon octicon-link"></span></a>finite-frame</h3>
+<p>Protocols often describe lengths in terms of bytes, not elements.  The prefix example given earlier is one way of working around this, but this isn’t always possible.  A more general solution can be found in <code>(finite-frame prefix frame)</code>.  This creates a frame which is prefaced by a descriptor of its byte-length.  A key point to realize is that the inner frame doesn’t define its own boundaries, it will simply consume all the bytes that are given to it.</p>
+<p>The earlier example of an integer sequence, then, can also be implemented like this:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">finite-frame</span> <span class="ss">:int16</span>
+  <span class="p">(</span><span class="nf">repeated</span> <span class="ss">:int32</span> <span class="ss">:prefix</span> <span class="ss">:none</span><span class="p">))</span>
+</pre></div>
+
+<p>Notice that we have to explicitly state that there’s no prefix for the <code>(repeated ...)</code> frame.  A string with a byte-length prefix is also straightforward:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">finite-frame</span> <span class="ss">:int32</span> <span class="p">(</span><span class="nf">string</span> <span class="ss">:utf-8</span><span class="p">))</span>
+</pre></div>
+
+<p>Again, notice that the string doesn’t have a finite length or delimiters.</p>
+<h3>
+<a name="user-content-finite-block" class="anchor" href="https://github.com/ztellman/gloss/wiki/Introduction#finite-block" aria-hidden="true"><span class="octicon octicon-link"></span></a>finite-block</h3>
+<p><code>(finite-block prefix)</code> is just like <code>finite-frame</code>, except that there’s no inner frame.  The decoded value is simply a sequence of ByteBuffers, and the encoded value is just the ByteBuffers that are given to it, prefaced by the byte-length.</p>
+<h3>
+<a name="user-content-string-integer-and-string-float" class="anchor" href="https://github.com/ztellman/gloss/wiki/Introduction#string-integer-and-string-float" aria-hidden="true"><span class="octicon octicon-link"></span></a>string-integer and string-float</h3>
+<p><code>(string-integer ...)</code> and <code>(string-float ...)</code> are string frames that are decoded into numerical values.  They are otherwise identical to <code>(string ...)</code>, and take the same parameters.  This greatly simplifies the earlier example of a string prefix:</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">repeated</span> <span class="ss">:byte</span> 
+  <span class="ss">:prefix</span> <span class="p">(</span><span class="nf">prefix</span> <span class="p">(</span><span class="nf">string</span> <span class="ss">:ascii</span> <span class="ss">:delimiters</span> <span class="p">[</span><span class="s">":"</span><span class="p">])</span>
+            <span class="o">#</span><span class="p">(</span><span class="nf">Long/parseLong</span> <span class="nv">%</span><span class="p">)</span>
+            <span class="nv">str</span><span class="p">))</span>
+</pre></div>
+
+<p>becomes simply</p>
+
+<div class="highlight highlight-clj"><pre><span class="p">(</span><span class="nf">repeated</span> <span class="ss">:byte</span> 
+  <span class="ss">:prefix</span> <span class="p">(</span><span class="nf">string-integer</span> <span class="ss">:ascii</span> <span class="ss">:delimiters</span> <span class="p">[</span><span class="s">":"</span><span class="p">]))</span>
+</pre></div>
+    </div>
+
+  </div>
+  </div>
+</div>
+</div>
+
+
+        </div>
+
+      </div><!-- /.repo-container -->
+      <div class="modal-backdrop"></div>
+    </div><!-- /.container -->
+  </div><!-- /.site -->
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer">
+    <ul class="site-footer-links right">
+      <li><a href="https://status.github.com/">Status</a></li>
+      <li><a href="http://developer.github.com/">API</a></li>
+      <li><a href="http://training.github.com/">Training</a></li>
+      <li><a href="http://shop.github.com/">Shop</a></li>
+      <li><a href="https://github.com/blog">Blog</a></li>
+      <li><a href="https://github.com/about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com/">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+    </a>
+
+    <ul class="site-footer-links">
+      <li>© 2014 <span title="0.07870s from github-fe135-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy">Privacy</a></li>
+        <li><a href="https://github.com/security">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+    </ul>
+  </div><!-- /.site-footer -->
+</div><!-- /.container -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-fullscreen-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="https://github.com/ztellman/gloss/wiki/Introduction#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="https://github.com/ztellman/gloss/wiki/Introduction#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w" aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="https://github.com/ztellman/gloss/wiki/Introduction#" class="octicon octicon-x close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="./Introduction · ztellman gloss Wiki_files/frameworks-51e3b077e56f2f3244290e430b8d05253607065b.js" type="text/javascript"></script>
+      <script async="async" crossorigin="anonymous" src="./Introduction · ztellman gloss Wiki_files/github-f0da153bb5173d6ed368797c1948a5e1f749d9c6.js" type="text/javascript"></script>
+      
+        <script crossorigin="anonymous" src="./Introduction · ztellman gloss Wiki_files/wiki-32c4ea5b83ab2e0ce6f0e0f65a7308731c57af50.js" type="text/javascript"></script>
+
+        <script async="" src="./Introduction · ztellman gloss Wiki_files/analytics.js"></script>
+  
+
+
+<div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="https://assets-cdn.github.com/flash/ZeroClipboard.v1.3.2.swf">         <param name="allowScriptAccess" value="always">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="trustedOrigins=github.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com%2Cgithub.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com">         <embed src="https://assets-cdn.github.com/flash/ZeroClipboard.v1.3.2.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="100%" height="100%" name="global-zeroclipboard-flash-bridge" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="trustedOrigins=github.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com%2Cgithub.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com" scale="exactfit">                </object></div>    <div class="facebox" id="facebox" style="display:none;">       <div class="facebox-popup">         <div class="facebox-content">         </div>         <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">           <span class="octicon octicon-remove-close"></span>         </button>       </div>     </div><div id="window-resizer-tooltip" style="display: block;"><a href="https://github.com/ztellman/gloss/wiki/Introduction#" title="Edit settings" style="background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19.png);"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1440</span> x <span class="tooltipHeight" id="winHeight">817</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1440</span> x <span class="tooltipHeight" id="vpHeight">701</span></div></body></html>
