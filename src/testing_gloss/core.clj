@@ -1,7 +1,12 @@
 (ns testing-gloss.core
   (:require [gloss.core :refer :all]
             [gloss.io :refer :all])
-  (:import java.io.FileOutputStream))
+  (:import java.io.FileOutputStream
+           java.net.InetSocketAddress
+           java.nio.channels.SocketChannel
+           java.io.BufferedOutputStream))
+
+; Peer wire protocol
 
 (defmacro defpeer-wire-msg [msg-type & fields]
   (let [type-kw (keyword msg-type)]
@@ -52,15 +57,38 @@
                :info-hash     (repeat 20 :ubyte)
                :peer-id       (string :us-ascii :length 20)))
 
+; Util
+
+(defn while-connected-to [hostname port f]
+  (let [address (InetSocketAddress. hostname port)]
+    (with-open [socket-channel (SocketChannel/open address)]
+      (let [socket (.socket socket-channel)]
+        (f (.getInputStream socket)
+           (BufferedOutputStream. (.getOutputStream socket)))))))
+
 (defn sha1-to-byte-seq [sha1]
   (seq (byte-array (drop 1 (.toByteArray (biginteger sha1))))))
 
-(with-open [out (FileOutputStream. "handshake.bin")]
-  (encode-to-stream handshake
-                    out
-                    [{:protocol-name "BitTorrent protocol"
-                      :reserved  0
-                      :info-hash (sha1-to-byte-seq 0xd8a871a8485f51c2b399f78af161d0fca35b5c46)
-                      :peer-id   "bt.clj  ------------"}]))
+; Test
 
+(def handshake-msg
+  {:protocol-name "BitTorrent protocol"
+   :reserved  0
+   :info-hash (sha1-to-byte-seq 0xd8a871a8485f51c2b399f78af161d0fca35b5c46)
+   :peer-id   "bt.clj  ------------"})
 
+(comment
+  (with-open [out (FileOutputStream. "handshake.bin")]
+    (encode-to-stream handshake
+                      out
+                      [handshake-msg])))
+
+(defn handshake-test []
+  (while-connected-to
+    "localhost" 56048
+    (fn [read-stream write-stream]
+      (encode-to-stream handshake write-stream [handshake-msg])
+      (.flush write-stream)
+      (Thread/sleep 1000))))
+
+(handshake-test)
