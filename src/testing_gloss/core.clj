@@ -9,8 +9,8 @@
        (ordered-map :type ~type-kw ~@ fields))))
 
 (defcodec types
-  (enum :ubyte :choke :unchoke :interested :not-interested :have
-        :bitfield :request :piece :cancel))
+  (enum :ubyte :choke :unchoke :interested :not-interested :have :bitfield
+        :request :piece :cancel))
 
 (defpeer-wire-msg choke)
 (defpeer-wire-msg unchoke)
