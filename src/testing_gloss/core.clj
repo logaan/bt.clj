@@ -65,17 +65,21 @@
                                     :bitfield [0]})
             _         (send-pwm ch {:type :interested})
             _         (send-pwm ch {:type :unchoke}) 
+            unchoke   @(read-channel pwc)
             _         (send-pwm ch {:type   :request
-                                    :index  0
+                                    :index  1
                                     :offset 0
-                                    :length 11232})]
+                                    :length 100})
+            piece   @(read-channel pwc)]
         (println handshake)
-        (println bitfield))
+        (println bitfield)
+        (println unchoke)
+        (println piece))
       (finally (force-close ch)))))
 
-; Transmission isn't sending the piece. Don't know why. Probably an error in
-; either index, offset or length of the request msg. Should hook up a second
-; torrent app and get them talking to each other to see what a req looks like.
+; Should be able to try deleting the file but keeping the torrent. Then connec
+; to transmission and send a complete bitfield. Transmission should then send
+; me some valid requests. I can then send them back later.
 
 (comment
 
