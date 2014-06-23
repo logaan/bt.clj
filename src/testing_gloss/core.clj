@@ -79,26 +79,28 @@
    :info-hash (sha1-to-byte-seq 0xd8a871a8485f51c2b399f78af161d0fca35b5c46)
    :peer-id   "bt.clj  ------------"})
 
-(def test-peer-wire-messages
-  [{:type :choke}
-   {:type :unchoke}
-   {:type :interested}
-   {:type :uninterested}])
+(defn send-pwm [ch msg]
+  (enqueue ch (encode peer-wire-messages msg)))
 
 (defn channel-test []
   (let [ch (wait-for-result
              (tcp-client {:host "localhost" :port 56048}))]
     (try
       (enqueue ch (encode-all handshake [handshake-msg]))
-      ;(enqueue ch (encode-all peer-wire-messages test-peer-wire-messages))
       (let [bbc       (map* #(.toByteBuffer %) ch)
             hc        (decode-channel-headers bbc [handshake])
             handshake @(read-channel hc)
             pwc       (decode-channel hc peer-wire-messages)
             bitfield  @(read-channel pwc)
-            _         (enqueue ch (encode peer-wire-messages {:type :interested}))]
+            _         (send-pwm ch {:type :interested})
+            _         (send-pwm ch {:type   :request
+                                    :index  1
+                                    :offset 0
+                                    :length 1})
+            _         (send-pwm ch {:type :unchoke})]
         (println handshake)
-        (println bitfield)) 
+        (println bitfield)
+        (Thread/sleep 2000)) 
       (finally (force-close ch)))))
 
 ; With lengthed .toByteBuffer and seq it works
