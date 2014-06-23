@@ -2,56 +2,7 @@
   (:require [gloss.core :refer :all]
             [gloss.io :refer :all]
             [lamina.core :refer :all]
-            [aleph.tcp :refer :all])
-  (:import java.io.FileOutputStream
-           java.net.InetSocketAddress
-           java.nio.channels.SocketChannel
-           java.io.BufferedOutputStream))
-
-; Peer wire protocol
-
-(defmacro defpeer-wire-msg [msg-type & fields]
-  (let [type-kw (keyword msg-type)]
-    `(defcodec ~msg-type
-       (ordered-map :type ~type-kw ~@ fields))))
-
-(defpeer-wire-msg choke)
-(defpeer-wire-msg unchoke)
-(defpeer-wire-msg interested)
-(defpeer-wire-msg uninterested)
-
-(defpeer-wire-msg have
-  :index :uint32)
-
-(defpeer-wire-msg bitfield 
-  :bitfield (repeated :ubyte :prefix :none))
-
-(defpeer-wire-msg request
-  :index   :uint32
-  :offset  :uint32
-  :length  :uint32)
-
-(defpeer-wire-msg piece
-  :index   :uint32
-  :offset  :uint32
-  :block   (repeated :ubyte :prefix :none))
-
-(defpeer-wire-msg cancel
-  :index   :uint32
-  :offset  :uint32
-  :length  :uint32)
-
-(def peer-wire-codecs
-  '[choke unchoke interested uninterested have bitfield request piece cancel])
-
-(def type->codec
-  (apply array-map (mapcat (juxt keyword eval) peer-wire-codecs))) 
-
-(defcodec types-enum
-  (apply (partial enum :ubyte) (map keyword peer-wire-codecs)))
-
-(def peer-wire-messages
-  (finite-frame :uint32 (header types-enum type->codec :type)))
+            [aleph.tcp :refer :all]))
 
 (defcodec handshake
   (ordered-map :protocol-name (finite-frame :ubyte (string :us-ascii))
@@ -59,19 +10,37 @@
                :info-hash     (repeat 20 :ubyte)
                :peer-id       (string :us-ascii :length 20)))
 
-; Util
+(def pwm
+  (array-map
+    :choke        (compile-frame {:type     :choke})
+    :unchoke      (compile-frame {:type     :unchoke})
+    :interested   (compile-frame {:type     :interested})
+    :uninterested (compile-frame {:type     :uninterested})
+    :have         (compile-frame {:type     :have
+                                  :index    :uint32})
+    :bitfield     (compile-frame {:type     :bitfield
+                                  :bitfield (repeated :ubyte :prefix :none)})
+    :request      (compile-frame {:type     :request
+                                  :index    :uint32
+                                  :offset   :uint32
+                                  :length   :uint32})
+    :piece        (compile-frame {:type     :piece
+                                  :index    :uint32
+                                  :offset   :uint32
+                                  :block    (repeated :ubyte :prefix :none)})
+    :cancel       (compile-frame {:type     :cancel
+                                  :index    :uint32
+                                  :offset   :uint32
+                                  :length   :uint32})))
 
-(defn while-connected-to [hostname port f]
-  (let [address (InetSocketAddress. hostname port)]
-    (with-open [socket-channel (SocketChannel/open address)]
-      (let [socket (.socket socket-channel)]
-        (f (.getInputStream socket)
-           (BufferedOutputStream. (.getOutputStream socket)))))))
+(defcodec types-enum
+  (apply (partial enum :ubyte) (keys pwm)))
+
+(def peer-wire-messages
+  (finite-frame :uint32 (header types-enum pwm :type)))
 
 (defn sha1-to-byte-seq [sha1]
   (seq (byte-array (drop 1 (.toByteArray (biginteger sha1))))))
-
-; Test
 
 (def handshake-msg
   {:protocol-name "BitTorrent protocol"
