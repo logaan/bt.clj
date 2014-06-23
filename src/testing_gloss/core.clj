@@ -92,9 +92,12 @@
       (enqueue ch (encode-all handshake [handshake-msg]))
       ;(enqueue ch (encode-all peer-wire-messages test-peer-wire-messages))
       (Thread/sleep 2000)
-      (let [bbc (map* #(.toByteBuffer %) ch)
-            hc (decode-channel-headers bbc [handshake])]
-        (println @(read-channel hc)))
+      (let [bbc       (map* #(.toByteBuffer %) ch)
+            hc        (decode-channel-headers bbc [handshake])
+            handshake @(read-channel hc)
+            pwc       (decode-channel hc peer-wire-messages)]
+        (println handshake)
+        (println @(read-channel pwc))) 
       (finally (force-close ch)))))
 
 ; With lengthed .toByteBuffer and seq it works
