@@ -92,31 +92,23 @@
             handshake @(read-channel hc)
             pwc       (decode-channel hc peer-wire-messages)
             bitfield  @(read-channel pwc)
+            _         (send-pwm ch {:type :bitfield
+                                    :bitfield [0]})
             _         (send-pwm ch {:type :interested})
+            _         (send-pwm ch {:type :unchoke}) 
+            _         (Thread/sleep 2000)
             _         (send-pwm ch {:type   :request
-                                    :index  1
+                                    :index  0
                                     :offset 0
-                                    :length 1})
-            _         (send-pwm ch {:type :unchoke})]
+                                    :length 11232})]
         (println handshake)
         (println bitfield)
-        (Thread/sleep 2000)) 
+        (Thread/sleep 20000)) 
       (finally (force-close ch)))))
 
-; With lengthed .toByteBuffer and seq it works
-;
-; With no lengthed .toByteBuffer the error we get is:
-; ClassCastException org.jboss.netty.buffer.BigEndianHeapChannelBuffer cannot be cast to java.nio.Buffer  gloss.data.bytes.core/create-buf-seq (core.clj:254)
-;
-; With lengthed .toByteBuffer but no sequence it works
-;
-; Without lengthed .toByteArray or a seq the error we get is:
-; IllegalArgumentException Don't know how to create ISeq from: org.jboss.netty.buffer.BigEndianHeapChannelBuffer  clojure.lang.RT.seqFrom (RT.java:505)
-;
-; With non-lengthed .toByteBuffer the exception we get is:
-; Exception Bytes left over after decoding frame.   gloss.io/decode (io.clj:86)
-; But only when the bitfield is sent through in the same packet.
-; Otherwise it works fine.
+; Transmission isn't sending the piece. Don't know why. Probably an error in
+; either index, offset or length of the request msg. Should hook up a second
+; torrent app and get them talking to each other to see what a req looks like.
 
 (comment
 
