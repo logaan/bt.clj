@@ -96,14 +96,12 @@
                                     :bitfield [0]})
             _         (send-pwm ch {:type :interested})
             _         (send-pwm ch {:type :unchoke}) 
-            _         (Thread/sleep 2000)
             _         (send-pwm ch {:type   :request
                                     :index  0
                                     :offset 0
                                     :length 11232})]
         (println handshake)
-        (println bitfield)
-        (Thread/sleep 20000)) 
+        (println bitfield))
       (finally (force-close ch)))))
 
 ; Transmission isn't sending the piece. Don't know why. Probably an error in
