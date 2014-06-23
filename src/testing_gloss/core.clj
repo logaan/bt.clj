@@ -91,13 +91,14 @@
     (try
       (enqueue ch (encode-all handshake [handshake-msg]))
       ;(enqueue ch (encode-all peer-wire-messages test-peer-wire-messages))
-      (Thread/sleep 2000)
       (let [bbc       (map* #(.toByteBuffer %) ch)
             hc        (decode-channel-headers bbc [handshake])
             handshake @(read-channel hc)
-            pwc       (decode-channel hc peer-wire-messages)]
+            pwc       (decode-channel hc peer-wire-messages)
+            bitfield  @(read-channel pwc)
+            _         (enqueue ch (encode peer-wire-messages {:type :interested}))]
         (println handshake)
-        (println @(read-channel pwc))) 
+        (println bitfield)) 
       (finally (force-close ch)))))
 
 ; With lengthed .toByteBuffer and seq it works
