@@ -20,18 +20,18 @@
                                   :index    :uint32})
     :bitfield     (compile-frame {:type     :bitfield
                                   :bitfield (repeated :ubyte :prefix :none)})
-    :request      (compile-frame {:type     :request
-                                  :index    :uint32
-                                  :offset   :uint32
-                                  :length   :uint32})
-    :piece        (compile-frame {:type     :piece
-                                  :index    :uint32
-                                  :offset   :uint32
-                                  :block    (repeated :ubyte :prefix :none)})
-    :cancel       (compile-frame {:type     :cancel
-                                  :index    :uint32
-                                  :offset   :uint32
-                                  :length   :uint32})))
+    :request      (compile-frame (ordered-map :type     :request
+                                              :index    :uint32
+                                              :offset   :uint32
+                                              :length   :uint32))
+    :piece        (compile-frame (ordered-map :type     :piece
+                                              :index    :uint32
+                                              :offset   :uint32
+                                              :block    (repeated :ubyte :prefix :none)))
+    :cancel       (compile-frame (ordered-map :type     :cancel
+                                              :index    :uint32
+                                              :offset   :uint32
+                                              :length   :uint32))))
 
 (defcodec types-enum
   (apply (partial enum :ubyte) (keys pwm)))
@@ -67,9 +67,9 @@
             _         (send-pwm ch {:type :unchoke}) 
             unchoke   @(read-channel pwc)
             _         (send-pwm ch {:type   :request
-                                    :index  1
+                                    :index  0
                                     :offset 0
-                                    :length 100})
+                                    :length 0x00002be0})
             piece   @(read-channel pwc)]
         (println handshake)
         (println bitfield)
