@@ -1,6 +1,8 @@
 (ns testing-gloss.core
   (:require [gloss.core :refer :all]
-            [gloss.io :refer :all])
+            [gloss.io :refer :all]
+            [lamina.core :refer :all]
+            [aleph.tcp :refer :all])
   (:import java.io.FileOutputStream
            java.net.InetSocketAddress
            java.nio.channels.SocketChannel
@@ -91,4 +93,15 @@
       (.flush write-stream)
       (Thread/sleep 1000))))
 
-(handshake-test)
+; (handshake-test)
+
+(defn channel-test []
+  (let [ch (wait-for-result
+             (tcp-client {:host "localhost" :port 56048}))]
+    (enqueue ch (encode-all handshake [handshake-msg]))
+    (future (mapv println (channel->lazy-seq ch)))
+    (Thread/sleep 1000)
+    (close ch)))
+
+(channel-test)
+
