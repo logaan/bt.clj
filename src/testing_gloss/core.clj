@@ -56,21 +56,21 @@
              (tcp-client {:host "localhost" :port 56048}))]
     (try
       (enqueue ch (encode-all handshake [handshake-msg]))
-      (let [bbc       (map* #(.toByteBuffer %) ch)
-            hc        (decode-channel-headers bbc [handshake])
-            handshake @(read-channel hc)
-            pwc       (decode-channel hc peer-wire-messages)
-            bitfield  @(read-channel pwc)
-            _         (send-pwm ch {:type :bitfield
-                                    :bitfield [0]})
-            _         (send-pwm ch {:type :interested})
-            _         (send-pwm ch {:type :unchoke}) 
-            unchoke   @(read-channel pwc)
-            _         (send-pwm ch {:type   :request
-                                    :index  0
-                                    :offset 0
-                                    :length 0x00002be0})
-            piece   @(read-channel pwc)]
+      (let [byte-buffer-ch (map* #(.toByteBuffer %) ch)
+            header-ch      (decode-channel-headers byte-buffer-ch [handshake])
+            handshake      @(read-channel header-ch)
+            peer-wire-ch   (decode-channel header-ch peer-wire-messages)
+            bitfield       @(read-channel peer-wire-ch)
+            _              (send-pwm ch {:type :bitfield
+                                         :bitfield [0]})
+            _              (send-pwm ch {:type :interested})
+            _              (send-pwm ch {:type :unchoke}) 
+            unchoke        @(read-channel peer-wire-ch)
+            _              (send-pwm ch {:type   :request
+                                         :index  0
+                                         :offset 0
+                                         :length 0x00002be0})
+            piece   @(read-channel peer-wire-ch)]
         (with-open [f (clojure.java.io/output-stream "output.txt")]
           (.write f (byte-array (map byte (:block piece))))))
       (finally (force-close ch)))))
