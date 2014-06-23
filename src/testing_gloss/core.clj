@@ -88,11 +88,16 @@
 (defn channel-test []
   (let [ch (wait-for-result
              (tcp-client {:host "localhost" :port 56048}))]
-    (enqueue ch (encode-all handshake [handshake-msg]))
-    (enqueue ch (encode-all peer-wire-messages test-peer-wire-messages))
-    (future (mapv println (channel->lazy-seq ch)))
-    (Thread/sleep 1000)
-    (close ch)))
+    (try
+      (enqueue ch (encode-all handshake [handshake-msg]))
+      ;(enqueue ch (encode-all peer-wire-messages test-peer-wire-messages))
+      (println (decode handshake [(.toByteBuffer @(read-channel ch) 0 68)]))
+      (Thread/sleep 2000)
+      (finally (force-close ch)))))
 
-(channel-test)
+(comment
+
+  (channel-test)
+
+  )
 
