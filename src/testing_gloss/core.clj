@@ -51,7 +51,7 @@
 (defn send-pwm [ch msg]
   (enqueue ch (encode peer-wire-messages msg)))
 
-(defn channel-test []
+(defn request-epl-txt []
   (let [ch (wait-for-result
              (tcp-client {:host "localhost" :port 56048}))]
     (try
@@ -71,19 +71,13 @@
                                     :offset 0
                                     :length 0x00002be0})
             piece   @(read-channel pwc)]
-        (println handshake)
-        (println bitfield)
-        (println unchoke)
-        (println piece))
+        (with-open [f (clojure.java.io/output-stream "output.txt")]
+          (.write f (byte-array (map byte (:block piece))))))
       (finally (force-close ch)))))
-
-; Should be able to try deleting the file but keeping the torrent. Then connec
-; to transmission and send a complete bitfield. Transmission should then send
-; me some valid requests. I can then send them back later.
 
 (comment
 
-  (channel-test)
+  (request-epl-txt)
 
   )
 
