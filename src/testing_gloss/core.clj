@@ -45,7 +45,7 @@
   '[choke unchoke interested uninterested have bitfield request piece cancel])
 
 (def type->codec
-  (apply array-map (mapcat (juxt keyword resolve) peer-wire-codecs))) 
+  (apply array-map (mapcat (juxt keyword eval) peer-wire-codecs))) 
 
 (defcodec types-enum
   (apply (partial enum :ubyte) (map keyword peer-wire-codecs)))
@@ -79,26 +79,17 @@
    :info-hash (sha1-to-byte-seq 0xd8a871a8485f51c2b399f78af161d0fca35b5c46)
    :peer-id   "bt.clj  ------------"})
 
-(comment
-  (with-open [out (FileOutputStream. "handshake.bin")]
-    (encode-to-stream handshake
-                      out
-                      [handshake-msg])))
-
-(defn handshake-test []
-  (while-connected-to
-    "localhost" 56048
-    (fn [read-stream write-stream]
-      (encode-to-stream handshake write-stream [handshake-msg])
-      (.flush write-stream)
-      (Thread/sleep 1000))))
-
-; (handshake-test)
+(def test-peer-wire-messages
+  [{:type :choke}
+   {:type :unchoke}
+   {:type :interested}
+   {:type :uninterested}])
 
 (defn channel-test []
   (let [ch (wait-for-result
              (tcp-client {:host "localhost" :port 56048}))]
     (enqueue ch (encode-all handshake [handshake-msg]))
+    (enqueue ch (encode-all peer-wire-messages test-peer-wire-messages))
     (future (mapv println (channel->lazy-seq ch)))
     (Thread/sleep 1000)
     (close ch)))
